@@ -61,7 +61,7 @@ func (m *RootManager[K, T]) Init() {
 // Shutdown 关闭根任务管理器
 func (m *RootManager[K, T]) Shutdown() {
 	fmt.Println("RootManager Shutdown...")
-	m.Logger.Info("[before exit]RootManager Shutdown...")
+	fmt.Println("[before exit]RootManager Shutdown...")
 	BeforeExit()
 	m.Stop(ErrExit)
 	m.dispose()
