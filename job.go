@@ -198,6 +198,7 @@ func (mt *Job) AddTask(t ITask, opt ...any) (task *Task) {
 		if err != nil {
 			mt.children.Delete(t.getKey())
 			task.startup.Reject(err)
+			mt.Error("add task failed", "id", task.ID, "error", err)
 		}
 	}()
 	if err = mt.eventLoop.add(mt, t); err != nil {
