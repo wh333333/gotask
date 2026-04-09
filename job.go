@@ -65,6 +65,12 @@ func (mt *Job) EventLoopRunning() bool {
 	return mt.eventLoop.running.Load()
 }
 
+// SetEventLoopBufferSize sets the capacity for the job's event loop channel.
+// Call before the job starts to ensure the new buffer size is used.
+func (mt *Job) SetEventLoopBufferSize(size int) {
+	mt.eventLoop.SetBufferSize(size)
+}
+
 func (mt *Job) waitChildrenDispose(stopReason error) {
 	mt.eventLoop.active(mt)
 	mt.children.Range(func(key, value any) bool {

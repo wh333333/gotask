@@ -20,6 +20,7 @@ import (
 
 const TraceLevel = slog.Level(-8)
 const OwnerTypeKey = "ownerType"
+const DefaultEventLoopBufferSize = 256
 
 var (
 	ErrAutoStop        = errors.New("auto stop")
